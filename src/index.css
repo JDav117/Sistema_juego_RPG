@@ -1,0 +1,49 @@
+﻿@import "tailwindcss";
+
+:root {
+  --bg-primary: #f5e6c8;
+  --bg-secondary: #ede0c8;
+  --bg-card: #fff8ee;
+  --bg-nav: #5c4a32;
+  --text-primary: #3b2f1e;
+  --text-secondary: #6b5b47;
+  --text-nav: #f5e6c8;
+  --accent: #8b6914;
+  --accent-hover: #a47d1a;
+  --border: #c4a97d;
+  --btn-primary: #4a3728;
+  --btn-primary-hover: #5c4a32;
+  --btn-disabled: #c4b89a;
+  --btn-disabled-text: #9a8e7a;
+  --highlight: #d4a017;
+  --highlight-bg: rgba(212, 160, 23, 0.15);
+}
+
+.dark {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #1f2937;
+  --bg-nav: #0f0f23;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-nav: #e2e8f0;
+  --accent: #fbbf24;
+  --accent-hover: #f59e0b;
+  --border: #374151;
+  --btn-primary: #4338ca;
+  --btn-primary-hover: #4f46e5;
+  --btn-disabled: #374151;
+  --btn-disabled-text: #6b7280;
+  --highlight: #fbbf24;
+  --highlight-bg: rgba(251, 191, 36, 0.15);
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
