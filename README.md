@@ -1,16 +1,52 @@
-# React + Vite
+# ⚔️ Dungeon Navigator - Sistema de Navegación RPG
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de navegación para un juego de rol (RPG) tipo dungeon crawler desarrollado con React. El jugador explora un mundo de 5 salas conectadas mediante direcciones cardinales (Norte, Sur, Este, Oeste).
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Vite** — Entorno de desarrollo rápido
+- **React** — Biblioteca de interfaz de usuario
+- **React Router v7** — Manejo de rutas y navegación
+- **Zustand** — Estado global del juego
+- **Tailwind CSS** — Estilos utilitarios
+- **Context API** — Modo oscuro/claro
 
-## React Compiler
+## 🎮 Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Pantalla de Inicio (`/`):** Formulario para ingresar el nombre del héroe y comenzar la aventura.
+- **Exploración (`/game`):** Muestra la sala actual con su nombre y descripción. Botones direccionales (N, S, E, O) para moverse entre salas; se deshabilitan si la dirección no tiene salida.
+- **Mapa (`/map`):** Vista de todas las salas del mundo con indicador visual 🚩 en la sala donde se encuentra el jugador.
+- **Protección de rutas:** `/game` y `/map` redirigen a `/` si no se ha ingresado un nombre.
+- **Modo Pergamino / Calabozo:** Toggle de tema claro y oscuro con persistencia en `localStorage` y script anti-flicker.
 
-## Expanding the ESLint configuration
+## 🗺️ Mapa del Mundo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Sala | Conexiones |
+|------|-----------|
+| Entrada de la Cueva | ↑ Norte → Pasillo |
+| Pasillo de las Sombras | ↑ Norte → Trono, ↓ Sur → Entrada, → Este → Biblioteca, ← Oeste → Celda |
+| Gran Biblioteca | ← Oeste → Pasillo |
+| Celda Olvidada | → Este → Pasillo |
+| Salón del Trono | ↓ Sur → Pasillo |
+
+## 🚀 Instalación
+
+```bash
+npm install
+npm run dev
+```
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── components/       # Navbar, ProtectedRoute
+├── context/          # ThemeContext (modo oscuro/claro)
+├── data/             # worldMap.json (mapa del mundo)
+├── layouts/          # Layout principal con Outlet
+├── pages/            # Home, Game, MapView
+├── store/            # useGameStore (Zustand)
+├── index.css         # Tailwind + variables CSS
+├── main.jsx          # Punto de entrada con ThemeProvider
+└── App.jsx           # Configuración de rutas
+```
